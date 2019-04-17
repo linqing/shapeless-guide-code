@@ -16,6 +16,6 @@ object Main extends Demo {
   val employee = Employee("Bill", 1, true)
   val iceCream = IceCream("Cornetto", 0, true)
 
-  // println(employee)
-  // println(iceCream)
+  println(employee)
+  println(iceCream)
 }

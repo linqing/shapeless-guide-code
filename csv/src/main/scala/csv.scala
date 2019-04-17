@@ -1,11 +1,7 @@
 
-
-
 trait CsvEncoder[A] {
   def encode(value: A): List[String]
 }
-
-
 
 object CsvEncoder {
   def pure[A](func: A => List[String]): CsvEncoder[A] =

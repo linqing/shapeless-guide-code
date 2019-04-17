@@ -1,6 +1,4 @@
 import shapeless._
-import shapeless.ops.coproduct.Length
-import shapeless.ops.nat.ToInt
 
 trait Random[A] {
   def get: A

@@ -1,25 +1,25 @@
-scalaOrganization in ThisBuild := "org.typelevel"
-scalaVersion      in ThisBuild := "2.11.8"
+// scalaOrganization in ThisBuild := "org.typelevel"
+scalaVersion      in ThisBuild := "2.12.8"
 
 scalacOptions in Global ++= Seq(
   "-deprecation",
   "-encoding", "UTF-8",
   "-unchecked",
   "-feature",
-  "-Xlint",
-  "-Xfatal-warnings",
-  "-Ywarn-dead-code",
-  "-Yliteral-types"
+  "-Xlint"
+  //, "-Xfatal-warnings"
+  //, "-Ywarn-dead-code"
+  //, "-Yliteral-types"
 )
 
 libraryDependencies in Global ++= Seq(
-  "com.chuusai"   %% "shapeless"     % "2.3.2",
-  "org.typelevel" %% "cats"          % "0.7.0",
-  "io.circe"      %% "circe-core"    % "0.7.0-M1",
-  "io.circe"      %% "circe-generic" % "0.7.0-M1",
-  "io.circe"      %% "circe-parser"  % "0.7.0-M1",
-  "org.scalactic" %% "scalactic"     % "2.2.6" % Test,
-  "org.scalatest" %% "scalatest"     % "2.2.6" % Test
+  "com.chuusai"   %% "shapeless"     % "2.3.3",
+  "org.typelevel" %% "cats"          % "0.9.0",
+  "io.circe"      %% "circe-core"    % "0.11.1",
+  "io.circe"      %% "circe-generic" % "0.11.1",
+  "io.circe"      %% "circe-parser"  % "0.11.1",
+  "org.scalactic" %% "scalactic"     % "3.0.7" % Test,
+  "org.scalatest" %% "scalatest"     % "3.0.7" % Test
 )
 
 lazy val common =
@@ -47,7 +47,7 @@ lazy val random =
   project.in(file("random")).dependsOn(common)
 
 lazy val migrations =
-  project.in(file("migrations")).dependsOn(common)
+project.in(file("migrations")).dependsOn(common)
 
 lazy val mapping =
   project.in(file("mapping")).dependsOn(common)
@@ -58,9 +58,9 @@ lazy val root = project.in(file("."))
     representations,
     csv,
     literaltypes,
-    json,
-    numfields,
-    random,
-    migrations,
-    mapping
+    json
+    , numfields
+    , random
+    //, migrations
+    , mapping
   )
